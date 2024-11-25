@@ -1,42 +1,76 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-       
-        <link rel="icon" type="image/png" href="favicon.png" />
-        <link rel="apple-touch-icon" href="favicon.png">
-        <meta name="apple-mobile-web-app-title" content="">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Reminder & Fun Zone</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Clock -->
+        <header class="app-header">
+            <h1>🎉 Holiday Reminder & Fun Zone</h1>
+            <div id="clock">00:00:00</div>
+        </header>
 
- 
-    </head>
-    <body>
-        
-        <div class="container">
-            <h1>Holiday Reminder</h1>
-            <form id="holidayForm">
-              <label for="holidayName">Holiday Name:</label>
-              <input type="text" id="holidayName" placeholder="e.g., Christmas" required>
-        
-              <label for="holidayDate">Date:</label>
-              <input type="date" id="holidayDate" required>
-        
-              <button type="submit">Add Reminder</button>
-            </form>
-        
+        <!-- Holiday Form -->
+        <form id="holidayForm" class="animated-form">
+            <div class="form-group">
+                <label for="holidayName">Holiday Name:</label>
+                <input type="text" id="holidayName" placeholder="e.g., Christmas" required>
+            </div>
+            <div class="form-group">
+                <label for="holidayDate">Date:</label>
+                <input type="date" id="holidayDate" required>
+            </div>
+            <div class="form-group">
+                <label for="holidayCategory">Category:</label>
+                <select id="holidayCategory" required>
+                    <option value="Personal">Personal</option>
+                    <option value="National">National</option>
+                    <option value="Religious">Religious</option>
+                    <option value="Festive">Festive</option>
+                </select>
+            </div>
+            <button type="submit" class="animated-btn">Add Reminder</button>
+        </form>
+
+        <!-- Holiday Suggestions -->
+        <section class="suggested-holidays">
+            <h2>Quick Add Popular Holidays</h2>
+            <div class="holiday-grid">
+                <button class="suggested-holiday" data-name="Christmas" data-date="2024-12-25" data-category="Festive">🎄 Christmas</button>
+                <button class="suggested-holiday" data-name="New Year" data-date="2025-01-01" data-category="National">🎆 New Year</button>
+                <button class="suggested-holiday" data-name="Halloween" data-date="2024-10-31" data-category="Festive">🎃 Halloween</button>
+            </div>
+        </section>
+
+        <!-- Holiday List -->
+        <section>
             <h2>Upcoming Holidays</h2>
             <ul id="holidayList"></ul>
-        
-        <script src="script.js" async defer></script>
-    </body>
+        </section>
+
+        <!-- Mini-Games Section -->
+        <section id="games-section">
+            <h2>🎮 Mini-Games</h2>
+            <div class="games-grid">
+                <div id="tic-tac-toe" class="game-card">
+                    <h3>Santa Haircut</h3>
+                    <button class="play-button"><a href="https://www.crazygames.com/game/santa-haircut">Play Now</a></button>
+                </div>
+                <div id="memory-game" class="game-card">
+                    <h3>Winter Clash 3D</h3>
+                    <button class="play-button"><a href="https://www.crazygames.com/game/winter-clash-3d?czy_invite=true&utm_source=invite&roomId=657308">Play Now</a></button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Snowfall for Christmas -->
+    <div id="snowfall"></div>
+</body>
 </html>
+

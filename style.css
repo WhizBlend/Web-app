@@ -1,64 +1,187 @@
-*,
+/* Global Variables */
+:root {
+  --bg-light: #fefefe;
+  --bg-dark: #333;
+  --accent: #ff6f61;
+  --highlight: #00c853;
+  --snow: #fff;
+  --card-bg: #f0f0f0;
+}
+
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #f9f9f9, #e8e8e8);
+  color: var(--bg-dark);
+}
+
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--bg-light);
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--accent);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+#clock {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Holiday Form */
+.animated-form {
+  margin: 20px 0;
+  padding: 20px;
+  border: 2px dashed var(--accent);
+  border-radius: 10px;
+  background: var(--card-bg);
+}
+
+input, select, button {
+  padding: 10px;
+  font-size: 1rem;
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 8px;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Suggested Holidays */
+.holiday-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.suggested-holiday {
+  background: var(--highlight);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.suggested-holiday:hover {
+  background: #00a345;
+}
+
+/* Games Section */
+#games-section {
+  margin: 30px 0;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 2px solid var(--accent);
+}
+
+.games-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.game-card {
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.play-button {
+  background: var(--accent);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.play-button:hover {
+  background: #ff4b4b;
+}
+
+/* Snowfall Animation */
+#snowfall {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--snow);
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: snowfall 5s linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) translateX(0);
   }
-  
-  .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+  100% {
+    transform: translateY(100vh) translateX(50px);
   }
-  
-  h1, h2 {
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  input, button {
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #218838;
-  }
-  
-  #holidayList {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #holidayList li {
-    padding: 10px;
-    background: #f0f0f0;
-    margin: 5px 0;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
+}
+
+/* Holiday List Items */
+.holiday-item {
+  margin: 10px 0;
+  padding: 10px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.holiday-item button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.holiday-item button:hover {
+  background: #ff4b4b;
+}
+
