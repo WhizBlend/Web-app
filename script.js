@@ -113,4 +113,122 @@ document.addEventListener('DOMContentLoaded', () => {
   updateHolidayList();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const authSection = document.getElementById('auth-section');
+    const appSection = document.getElementById('app-section');
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const showRegister = document.getElementById('showRegister');
+    const showLogin = document.getElementById('showLogin');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    const users = JSON.parse(localStorage.getItem('users')) || {};
+    let currentUser = localStorage.getItem('currentUser');
+
+    // Toggle forms
+    showRegister.addEventListener('click', () => {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+    });
+    showLogin.addEventListener('click', () => {
+        registerForm.classList.add('hidden');
+        loginForm.classList.remove('hidden');
+    });
+
+    // Register
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('registerUsername').value;
+        const password = document.getElementById('registerPassword').value;
+
+        if (users[username]) {
+            alert('User already exists!');
+        } else {
+            users[username] = { password, holidays: [] };
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Registration successful! Please login.');
+            showLogin.click();
+        }
+    });
+
+    // Login
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('loginUsername').value;
+        const password = document.getElementById('loginPassword').value;
+
+        if (users[username] && users[username].password === password) {
+            currentUser = username;
+            localStorage.setItem('currentUser', currentUser);
+            authSection.classList.add('hidden');
+            appSection.classList.remove('hidden');
+            loadHolidays();
+        } else {
+            alert('Invalid username or password!');
+        }
+    });
+
+    // Logout
+    logoutBtn.addEventListener('click', () => {
+        currentUser = null;
+        localStorage.removeItem('currentUser');
+        appSection.classList.add('hidden');
+        authSection.classList.remove('hidden');
+    });
+
+    // Holiday Management (adjust holiday functions to be user-specific)
+    // ...
+    // Extend existing holiday functions to save/load from users[currentUser].holidays
+});
+
+
+// Reminder Functionality
+const reminderInput = document.getElementById('reminderInput');
+const addReminderBtn = document.getElementById('addReminderBtn');
+const reminderList = document.getElementById('reminderList');
+let reminders = JSON.parse(localStorage.getItem('reminders')) || [];
+
+// Load existing reminders
+function loadReminders() {
+    reminderList.innerHTML = '';
+    reminders.forEach((reminder, index) => {
+        const li = document.createElement('li');
+        li.textContent = reminder;
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.className = 'delete-reminder-btn';
+        deleteBtn.dataset.index = index;
+        deleteBtn.addEventListener('click', deleteReminder);
+        li.appendChild(deleteBtn);
+        reminderList.appendChild(li);
+    });
+}
+
+// Add new reminder
+addReminderBtn.addEventListener('click', () => {
+    const reminderText = reminderInput.value.trim();
+
+    if (reminderText === '') {
+        alert('Please enter a valid text or number!');
+        return;
+    }
+
+    reminders.push(reminderText);
+    localStorage.setItem('reminders', JSON.stringify(reminders));
+    reminderInput.value = '';
+    loadReminders();
+});
+
+// Delete reminder
+function deleteReminder(e) {
+    const index = e.target.dataset.index;
+    reminders.splice(index, 1);
+    localStorage.setItem('reminders', JSON.stringify(reminders));
+    loadReminders();
+}
+
+// Initialize reminders
+loadReminders();
+
+
      

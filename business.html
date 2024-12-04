@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Reminder App</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="business.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>📋 Business Reminder App</h1>
+            <a href="index.html" class="nav-link">Back to Holiday App</a>
+        </header>
+
+        <!-- Login Section -->
+        <section id="login-section">
+            <h2>Login</h2>
+            <form id="businessLoginForm">
+                <div class="form-group">
+                    <label for="businessUsername">Username:</label>
+                    <input type="text" id="businessUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="businessPassword">Password:</label>
+                    <input type="password" id="businessPassword" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p id="loginStatus"></p>
+        </section>
+
+        <!-- Reminder Form -->
+        <section id="business-reminder-section" style="display: none;">
+            <h2>Set Business Reminders</h2>
+            <form id="businessReminderForm">
+                <div class="form-group">
+                    <label for="reminderTitle">Task Title:</label>
+                    <input type="text" id="reminderTitle" placeholder="e.g., Client Meeting" required>
+                </div>
+                <div class="form-group">
+                    <label for="reminderDate">Date:</label>
+                    <input type="date" id="reminderDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="reminderDetails">Details:</label>
+                    <textarea id="reminderDetails" placeholder="Task details..." rows="3"></textarea>
+                </div>
+                <button type="submit">Add Reminder</button>
+            </form>
+            <ul id="businessReminderList"></ul>
+        </section>
+    </div>
+</body>
+</html>

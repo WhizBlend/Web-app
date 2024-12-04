@@ -1,30 +1,41 @@
-/* Global Variables */
-:root {
-  --bg-light: #fefefe;
-  --bg-dark: #333;
-  --accent: #ff6f61;
-  --highlight: #00c853;
-  --snow: #fff;
-  --card-bg: #f0f0f0;
-}
-
-/* Global Styles */
-body {
-  font-family: 'Arial', sans-serif;
+/* General Reset */
+* {
   margin: 0;
   padding: 0;
-  background: linear-gradient(120deg, #f9f9f9, #e8e8e8);
-  color: var(--bg-dark);
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #f8f9fa, #e9ecef);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Container */
 .container {
+  width: 90%;
   max-width: 1000px;
-  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
   padding: 20px;
-  background: var(--bg-light);
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: scale(0.95);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
 }
 
 /* Header */
@@ -32,102 +43,166 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--accent);
   padding: 10px 20px;
-  border-radius: 10px;
-  color: white;
+  background: #007bff;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
 }
 
 #clock {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
-/* Holiday Form */
-.animated-form {
-  margin: 20px 0;
-  padding: 20px;
-  border: 2px dashed var(--accent);
-  border-radius: 10px;
-  background: var(--card-bg);
+#logoutBtn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
-input, select, button {
+#logoutBtn:hover {
+  background: #c82333;
+}
+
+/* Form Styles */
+form {
+  margin: 20px 0;
   padding: 10px;
-  font-size: 1rem;
-  margin: 10px 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input, select {
   width: 100%;
-  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
 button {
-  background: var(--accent);
+  display: inline-block;
+  background: #007bff;
   color: white;
   border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: background 0.3s;
 }
 
 button:hover {
-  transform: translateY(-2px);
+  background: #0056b3;
 }
 
 /* Suggested Holidays */
+.suggested-holidays {
+  margin: 20px 0;
+}
+
 .holiday-grid {
   display: flex;
+  gap: 10px;
   flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
 }
 
 .suggested-holiday {
-  background: var(--highlight);
+  background: #28a745;
   color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .suggested-holiday:hover {
-  background: #00a345;
+  background: #218838;
 }
 
-/* Games Section */
+/* Holiday List */
+ul {
+  list-style: none;
+}
+
+#holidayList li {
+  padding: 10px;
+  margin: 5px 0;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+/* Mini-Games Section */
 #games-section {
-  margin: 30px 0;
-  padding: 20px;
-  background: #fafafa;
-  border-radius: 10px;
-  border: 2px solid var(--accent);
+  margin-top: 20px;
 }
 
 .games-grid {
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .game-card {
-  padding: 20px;
-  background: var(--card-bg);
-  border-radius: 10px;
-  width: 200px;
+  background: #e9ecef;
+  border-radius: 8px;
+  padding: 10px;
   text-align: center;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 200px;
 }
 
-.play-button {
-  background: var(--accent);
+.game-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.play-button a {
   color: white;
-  padding: 10px 15px;
-  border: none;
+  background: #007bff;
+  padding: 8px 12px;
   border-radius: 5px;
-  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.9rem;
 }
 
-.play-button:hover {
-  background: #ff4b4b;
+.play-button a:hover {
+  background: #0056b3;
 }
 
 /* Snowfall Animation */
@@ -135,10 +210,11 @@ button:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  z-index: 999;
+  z-index: 9999;
+  display: none;
 }
 
 .snowflake {
@@ -146,42 +222,95 @@ button:hover {
   top: -10px;
   width: 10px;
   height: 10px;
-  background-color: var(--snow);
-  border-radius: 50%;
+  background: white;
   opacity: 0.8;
-  animation: snowfall 5s linear infinite;
+  border-radius: 50%;
+  animation: fall 8s linear infinite, sway 3s ease-in-out infinite;
 }
 
-@keyframes snowfall {
-  0% {
-    transform: translateY(0) translateX(0);
-  }
-  100% {
-    transform: translateY(100vh) translateX(50px);
+@keyframes fall {
+  to {
+      top: 100%;
   }
 }
 
-/* Holiday List Items */
-.holiday-item {
-  margin: 10px 0;
-  padding: 10px;
-  background: var(--card-bg);
+@keyframes sway {
+  0%, 100% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(20px);
+  }
+}
+
+/* Auth Section */
+#auth-section {
+  text-align: center;
+  margin: 20px;
+}
+
+#auth-forms {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#auth-forms form {
+  background: #f8f9fa;
+  padding: 20px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.holiday-item button {
-  background: var(--accent);
-  color: white;
+#auth-forms h2 {
+  margin-bottom: 15px;
+}
+
+#auth-forms input {
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Switch Section */
+.switch-section {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.switch-section h2 {
+  margin-bottom: 15px;
+  color: #34495e;
+  font-size: 1.5rem;
+}
+
+.switch-button {
+  background-color: #1d72b8;
+  padding: 10px 20px;
   border: none;
-  padding: 5px 10px;
   border-radius: 5px;
+  font-size: 1rem;
   cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-.holiday-item button:hover {
-  background: #ff4b4b;
+.switch-button a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
 }
+
+.switch-button:hover {
+  background-color: #155d8a;
+}
+
+
+
+
 

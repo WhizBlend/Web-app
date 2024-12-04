@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Reminder & Fun Zone</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- User Authentication -->
+        <div id="auth-section">
+            <h1>🎉 Holiday Reminder & Fun Zone</h1>
+            <div id="auth-forms">
+                <!-- Registration Form -->
+                <form id="registerForm" class="hidden">
+                    <h2>Register</h2>
+                    <input type="text" id="registerUsername" placeholder="Username" required>
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                    <button type="submit">Register</button>
+                    <p>Already have an account? <a id="showLogin" href="#">Login</a></p>
+                </form>
+
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <h2>Login</h2>
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a id="showRegister" href="#">Register</a></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div id="app-section" class="hidden">
+            <!-- Header with Clock -->
+            <header class="app-header">
+                <h1>🎉 Holiday Reminder & Fun Zone</h1>
+                <div id="clock">00:00:00</div>
+                <button id="logoutBtn">Logout</button>
+            </header>
+            <!-- Add this in the original HTML under the container -->
+<section class="switch-section">
+    <h2>Looking for Business Reminders?</h2>
+    <button class="switch-button">
+        <a href="business.html">Switch to Business App</a>
+    </button>
+</section>
+
+
+            <!-- Holiday Form -->
+            <form id="holidayForm" class="animated-form">
+                <div class="form-group">
+                    <label for="holidayName">Holiday Name:</label>
+                    <input type="text" id="holidayName" placeholder="e.g., Christmas" required>
+                </div>
+                <div class="form-group">
+                    <label for="holidayDate">Date:</label>
+                    <input type="date" id="holidayDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="holidayCategory">Category:</label>
+                    <select id="holidayCategory" required>
+                        <option value="Personal">Personal</option>
+                        <option value="National">National</option>
+                        <option value="Religious">Religious</option>
+                        <option value="Festive">Festive</option>
+                    </select>
+                </div>
+                <button type="submit" class="animated-btn">Add Reminder</button>
+            </form>
+
+       
+
+
+            <!-- Holiday Suggestions -->
+            <section class="suggested-holidays">
+                <h2>Quick Add Popular Holidays</h2>
+                <div class="holiday-grid">
+                    <button class="suggested-holiday" data-name="Christmas" data-date="2024-12-25" data-category="Festive">🎄 Christmas</button>
+                    <button class="suggested-holiday" data-name="New Year" data-date="2025-01-01" data-category="National">🎆 New Year</button>
+                    <button class="suggested-holiday" data-name="Halloween" data-date="2024-10-31" data-category="Festive">🎃 Halloween</button>
+                </div>
+            </section>
+
+            <!-- Holiday List -->
+            <section>
+                <h2>Upcoming Holidays</h2>
+                <ul id="holidayList"></ul>
+            </section>
+
+            <!-- Mini-Games Section -->
+            <section id="games-section">
+                <h2>🎮 Mini-Games</h2>
+                <div class="games-grid">
+                    <div id="tic-tac-toe" class="game-card">
+                        <h3>Santa Haircut</h3>
+                        <button class="play-button"><a href="https://www.crazygames.com/game/santa-haircut">Play Now</a></button>
+                    </div>
+                    <div id="memory-game" class="game-card">
+                        <h3>Winter Clash 3D</h3>
+                        <button class="play-button"><a href="https://www.crazygames.com/game/winter-clash-3d?czy_invite=true&utm_source=invite&roomId=657308">Play Now</a></button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Snowfall -->
+        <div id="snowfall"></div>
+    </div>
+</body>
+</html>
+
+
